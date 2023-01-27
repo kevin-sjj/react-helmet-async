@@ -63,7 +63,7 @@ export class Helmet extends Component {
   static displayName = 'Helmet';
 
   shouldComponentUpdate(nextProps) {
-    console.log({compare: fastCompare(without(this.props, 'helmetData'), without(nextProps, 'helmetData'))});
+    console.log({compare: fastCompare(without(this.props, 'helmetData'), without(nextProps, 'helmetData')), prevProps: JSON.stringify(this.props), nextProps: JSON.stringify(nextProps)});
     return !fastCompare(without(this.props, 'helmetData'), without(nextProps, 'helmetData'));
   }
 

@@ -24,6 +24,7 @@ export default class Dispatcher extends Component {
   }
 
   componentWillUnmount() {
+    console.log('===== [Dispatcher Will UnMount] =====')
     const { helmetInstances } = this.props.context;
     helmetInstances.remove(this);
     this.emitChange();
@@ -63,6 +64,7 @@ export default class Dispatcher extends Component {
 
     const { helmetInstances } = this.props.context;
     helmetInstances.add(this);
+    console.log('===== [New Helmet Instance Added.] =====')
     this.emitChange();
   }
 

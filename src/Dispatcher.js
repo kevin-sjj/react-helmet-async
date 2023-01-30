@@ -39,6 +39,8 @@ export default class Dispatcher extends Component {
         return props;
       })
     );
+    console.log("===== emitChange() =====")
+    crossOriginIsolated.log({state})
     if (Provider.canUseDOM) {
       handleStateChangeOnClient(state);
     } else if (mapStateOnServer) {

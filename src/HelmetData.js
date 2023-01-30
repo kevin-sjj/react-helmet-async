@@ -15,7 +15,6 @@ export default class HelmetData {
     },
     helmetInstances: {
       get: () => {
-        console.log({clinetInstances: instances, serverInstances: this.instances})
         return this.canUseDOM ? instances : this.instances
       },
       add: instance => {
@@ -25,7 +24,6 @@ export default class HelmetData {
         console.log('===== START Removing Helmet Instance =====')
         console.log({RemovingInstance: instance})
         const index = (this.canUseDOM ? instances : this.instances).indexOf(instance);
-        console.log('===== END Removing Helmet Instance =====')
         (this.canUseDOM ? instances : this.instances).splice(index, 1);
       },
     },

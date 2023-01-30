@@ -42,6 +42,7 @@ export default class Dispatcher extends Component {
         return props;
       })
     );
+    console.log({'nextHelmetState': state})
     if (Provider.canUseDOM) {
       handleStateChangeOnClient(state);
     } else if (mapStateOnServer) {

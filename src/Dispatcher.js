@@ -32,6 +32,8 @@ export default class Dispatcher extends Component {
   emitChange() {
     const { helmetInstances, setHelmet } = this.props.context;
     let serverState = null;
+    console({helmetInstances, setHelmet})
+    console.log(helmetInstances.get())
     const state = reducePropsToState(
       helmetInstances.get().map(instance => {
         const props = { ...instance.props };

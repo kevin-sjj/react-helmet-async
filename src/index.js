@@ -227,7 +227,7 @@ export class Helmet extends Component {
     console.log({children, newProps, helmetData})
     if (children) {
       newProps = this.mapChildrenToProps(children, newProps);
-      console.log({newPropsByChildren})
+      console.log({newPropsByChildren: newProps})
     }
 
     if (helmetData && !(helmetData instanceof HelmetData)) {

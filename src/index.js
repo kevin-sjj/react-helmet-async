@@ -224,10 +224,8 @@ export class Helmet extends Component {
     const { children, ...props } = this.props;
     let newProps = { ...props };
     let { helmetData } = props;
-    console.log({children, newProps, helmetData})
     if (children) {
       newProps = this.mapChildrenToProps(children, newProps);
-      console.log({newPropsByChildren: newProps})
     }
 
     if (helmetData && !(helmetData instanceof HelmetData)) {
@@ -241,7 +239,9 @@ export class Helmet extends Component {
       <Context.Consumer>
         {(
           context // eslint-disable-next-line react/jsx-props-no-spreading
-        ) => <Dispatcher {...newProps} context={context} />}
+        ) => {
+          console.log({newProps, context})
+          return <Dispatcher {...newProps} context={context} />}}
       </Context.Consumer>
     );
   }

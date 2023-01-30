@@ -15,6 +15,7 @@ export default class Dispatcher extends Component {
   rendered = false;
 
   shouldComponentUpdate(nextProps) {
+    console.log({shallowEqual: shallowEqual(nextProps, this.props)})
     return !shallowEqual(nextProps, this.props);
   }
 

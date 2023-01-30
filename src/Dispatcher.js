@@ -24,17 +24,17 @@ export default class Dispatcher extends Component {
   }
 
   componentWillUnmount() {
-    console.log('===== [Dispatcher Will UnMount] =====')
+    console.log('===== [START Dispatcher Will UnMount] =====')
     const { helmetInstances } = this.props.context;
     helmetInstances.remove(this);
     this.emitChange();
+    console.log('===== [END Dispatcher Will UnMount] =====')
   }
 
   emitChange() {
+    console.log('===== START emit Change() =====')
     const { helmetInstances, setHelmet } = this.props.context;
     let serverState = null;
-    console.log({helmetInstances, setHelmet})
-    console.log(helmetInstances.get())
     const state = reducePropsToState(
       helmetInstances.get().map(instance => {
         const props = { ...instance.props };
@@ -42,14 +42,13 @@ export default class Dispatcher extends Component {
         return props;
       })
     );
-    console.log("===== emitChange() =====")
-    console.log({state})
     if (Provider.canUseDOM) {
       handleStateChangeOnClient(state);
     } else if (mapStateOnServer) {
       serverState = mapStateOnServer(state);
     }
     setHelmet(serverState);
+    console.log('===== END emit Change() =====')
   }
 
   // componentWillMount will be deprecated
@@ -59,13 +58,14 @@ export default class Dispatcher extends Component {
     if (this.rendered) {
       return;
     }
-
+    console.log('===== START New Helmet Instance Add =====')
     this.rendered = true;
 
     const { helmetInstances } = this.props.context;
     helmetInstances.add(this);
-    console.log('===== [New Helmet Instance Added.] =====')
+    
     this.emitChange();
+    console.log('===== END New Helmet Instance Add =====')
   }
 
   render() {

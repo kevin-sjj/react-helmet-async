@@ -14,7 +14,10 @@ export default class HelmetData {
       this.context.helmet = serverState;
     },
     helmetInstances: {
-      get: () => (this.canUseDOM ? instances : this.instances),
+      get: () => {
+        console.log({clinetInstances: instances, serverInstances: this.instances})
+        return this.canUseDOM ? instances : this.instances
+      },
       add: instance => {
         (this.canUseDOM ? instances : this.instances).push(instance);
       },

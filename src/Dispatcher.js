@@ -40,7 +40,7 @@ export default class Dispatcher extends Component {
       })
     );
     console.log("===== emitChange() =====")
-    crossOriginIsolated.log({state})
+    console.log({state})
     if (Provider.canUseDOM) {
       handleStateChangeOnClient(state);
     } else if (mapStateOnServer) {

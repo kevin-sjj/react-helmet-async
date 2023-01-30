@@ -22,6 +22,8 @@ export default class HelmetData {
         (this.canUseDOM ? instances : this.instances).push(instance);
       },
       remove: instance => {
+        console.log('===== Removing Instance =====')
+        console.log({instance})
         const index = (this.canUseDOM ? instances : this.instances).indexOf(instance);
         (this.canUseDOM ? instances : this.instances).splice(index, 1);
       },

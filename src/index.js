@@ -240,7 +240,6 @@ export class Helmet extends Component {
         {(
           context // eslint-disable-next-line react/jsx-props-no-spreading
         ) => {
-          console.log({newProps, context})
           return <Dispatcher {...newProps} context={context} />}}
       </Context.Consumer>
     );
